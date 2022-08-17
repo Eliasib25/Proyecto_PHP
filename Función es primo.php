@@ -9,6 +9,7 @@ for ($i=2; $i <$numero ; $i++) {
 	return true; 
 }
 }
+
 $num = 7; 
 
 $primo=esPrimo(num);
