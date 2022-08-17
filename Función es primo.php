@@ -4,17 +4,19 @@
 function esPrimo ($numero){
 for ($i=2; $i <$numero ; $i++) { 
 	if ($numero % $i == 0){
-	return = false; 
+	return false; 
 }else
-	return = true; 
+	return true; 
 }
 }
 $num = 7; 
+
 $primo=esPrimo(num);
 
-if ($primo== true){
-	echo "<h1>".esPrimo($num)."</h1>";
-}
+if ($primo == true){
+	echo "<h1>No es primo</h1>";
+}else
+echo "<h1>Es primo</h1>";
 
 
  ?>
