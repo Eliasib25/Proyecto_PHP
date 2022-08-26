@@ -1,7 +1,7 @@
 <?php 
-$numeroUno = $_GET['numeroUno'];
-$numeroDos = $_GET['numeroDos'];
-$numeroTres = $_GET['numeroTres'];
+$numeroUno = intval($_GET['numeroUno']);
+$numeroDos = intval($_GET['numeroDos']);
+$numeroTres = intval($_GET['numeroTres']);
 
 if ($numeroUno >= $numeroDos && $numeroUno >= $numeroTres)
 echo "<h1>El número mayor es:".$numeroUno."</h1>";

@@ -1,38 +1,41 @@
 <?php
 
-$arrayNumeros = array(45,32,47,2448);
-$tamañoCicloUno = count($arrayNumeros)-1;
-$numero = 5;
-$numero2 = 10;
+$arrayNumeros = $_GET['arrayNumeros'];
+$tamañoCicloUno = count($arrayNumeros) -1;
 
-for ($i=0;  $i <$tamañoCicloUno ; $i++) { 
-    for ($j=$i+1; $j<count($arrayNumeros) ; $j++) { 
-        $numeroUno = $arrayNumeros[$i];
-        $numeroDos = $arrayNumeros[$j]; 
+    function esPrimoRelativo($numeroUno, $numeroDos){
 
-        if(esPrimoRelativo($numeroUno,$numeroDos))
-        echo $numeroUno.' y '.$numeroDos.' son primos relativos <br>';
+        $esPrimoRelativo = true;
 
+        if ($numeroUno%$numeroDos == 0 || $numeroDos%$numeroUno == 0) {
+            $esPrimoRelativo = false;
+        }else{
+            for ($i=2; $i < $numeroUno && $esPrimoRelativo; $i++) { 
+
+                if ($numeroUno % $i == 0 && $numeroDos % $i == 0) {
+                    $esPrimoRelativo = false;
+                }
+            }
+        }
+
+        return $esPrimoRelativo; 
     }
-}
-function esPrimoRelativo ($numeroUno, $numeroDos) {
 
-$esPrimoRelativo = true;
+    for ($i=0; $i < $tamañoCicloUno; $i++) { 
+        for ($j=$i+1; $j < count($arrayNumeros); $j++) { 
+            $numeroUno = $arrayNumeros[$i];
+            $numeroDos = $arrayNumeros[$j];
 
-if($numeroUno % $numeroDos == 0 || $numeroDos%$numeroUno == 0)
-$esPrimoRelativo = false;
+            // echo $numeroUno .' : '. $numeroDos .'<br>'; 
+            if (esPrimoRelativo($numeroUno, $numeroDos)) {
+                echo $numeroUno. 'y'. $numeroDos. 'son primos relativos'.'<br>';
+            }
+        }
+    }
 
-else
+    
 
-for ($i=2; $i <$numeroUno && $esPrimoRelativo; $i++) { 
-    if ($numeroUno % $i == 0 && $numeroDos % $i == 0)
-    $esPrimoRelativo = false;
-   
-}
+    //echo  var_export(esPrimoRelativo(6,35));
 
-return $esPrimoRelativo;
-
-}
-
-echo var_export(esPrimoRelativo($numero,$numero2));
+// echo var_export(esPrimoRelativo($numero,$numero2));
 ?>
