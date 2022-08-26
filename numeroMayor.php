@@ -1,8 +1,7 @@
 <?php 
-
-$numeroUno=21;
-$numeroDos=22;
-$numeroTres=24;
+$numeroUno = $_GET['numeroUno'];
+$numeroDos = $_GET['numeroDos'];
+$numeroTres = $_GET['numeroTres'];
 
 if ($numeroUno >= $numeroDos && $numeroUno >= $numeroTres)
 echo "<h1>El número mayor es:".$numeroUno."</h1>";
